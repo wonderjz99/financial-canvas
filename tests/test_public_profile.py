@@ -1,5 +1,6 @@
 """Synthetic checks for license, file boundaries and forbidden historical paths."""
 import json
+import hashlib
 from pathlib import Path
 import subprocess
 import tempfile
@@ -78,6 +79,48 @@ class PublicProfileTests(unittest.TestCase):
         self.git("add", ".")
         self.git("commit", "-qm", "Synthetic clean initial fixture")
         self.assertGreater(check_candidate(self.root, tracked=True, history=True)["historyPathsChecked"], 0)
+
+    def example(self, source="SEC", extra_company=False):
+        report = {"schemaVersion": "1.0", "symbol": "COST", "years": [2026], "company": {"currency": "USD"},
+                  "snapshot": {"asOf": "2026-11-12"}, "facts": {"synthetic": {"source": source, "sourceUrl": "https://www.sec.gov/Archives/edgar/data/123456/annual.html"}}}
+        registry = {"COST": report}
+        if extra_company:
+            registry["PDD"] = report
+        body = 'window.__FV_REPORTS__=' + json.dumps(registry) + ';window.__FV_REPORT__=null;window.__FV_OFFLINE__=true;'
+        self.write("examples/reports/COST.html", body)
+        record = {"path": "examples/reports/COST.html", "symbol": "COST", "years": [2026], "currency": "USD", "asOf": "2026-11-12",
+                  "factSources": [source], "sha256": hashlib.sha256(body.encode()).hexdigest()}
+        self.write("examples/provenance.json", json.dumps({"schemaVersion": "1.0", "reports": [record]}))
+
+    def test_reviewed_official_example_is_checked_in_nested_report_directory(self):
+        self.example()
+        self.assertEqual(check_candidate(self.root)["reviewedReports"], 1)
+        with self.assertRaises(PublicationError):
+            permitted_file("examples/reports/PDD.html")
+
+    def test_example_rejects_vendor_data_and_additional_companies(self):
+        for source, extra in [("Futu", False), ("SEC", True)]:
+            self.example(source, extra)
+            with self.subTest(source=source, extra=extra), self.assertRaises(PublicationError):
+                check_candidate(self.root)
+
+    def test_example_provenance_hash_cannot_be_bypassed(self):
+        self.example()
+        self.write("examples/reports/COST.html", "Changed after provenance review")
+        with self.assertRaises(PublicationError):
+            check_candidate(self.root)
+
+    def test_replaced_vendor_example_is_still_rejected_in_history(self):
+        self.git("init", "-q")
+        self.example("Futu")
+        self.git("add", ".")
+        self.git("commit", "-qm", "Synthetic bad example fixture")
+        self.example("SEC")
+        self.git("add", ".")
+        self.git("commit", "-qm", "Synthetic replacement fixture")
+        check_candidate(self.root, tracked=True)
+        with self.assertRaises(PublicationError):
+            check_candidate(self.root, tracked=True, history=True)
 
 
 if __name__ == "__main__":

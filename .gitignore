@@ -2,6 +2,10 @@ __pycache__/
 *.py[cod]
 .local/
 reports/
+!examples/reports/
+!examples/reports/COST.html
+!examples/reports/AAPL.html
+!examples/reports/ADBE.html
 .DS_Store
 .checkpoints/
 node_modules/

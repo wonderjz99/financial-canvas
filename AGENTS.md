@@ -1,4 +1,4 @@
-# Financial Visualizer V2
+# Financial Canvas · 财务画布
 
 先读 README.md、docs/report-v2.md。项目交付是一家公司一个离线 HTML；首版范围为 US GAAP 美股非金融公司、最多五个完整财年，不扩展季度、估值或交易。
 
@@ -18,4 +18,4 @@
 
 `python3 -B scripts/verify.py` 在本公开版默认执行独立 V2 模式；`--browser` 增加已安装 Playwright 的离线三视口测试。不要将合成测试写成真实财务覆盖。修改界面时实际查看截图再报告视觉验收。
 
-`PUBLIC_RELEASE.json` 标识公开配置。不得加入 data、旧快照、生成报告、原型、私有配置或原研发仓库的 Git 历史；`scripts/check_public.py --tracked --history` 检查发布路径。真实资料和缓存保留在被忽略的 .local/、reports/。MIT 只适用于自有代码、文档和合成测试，第三方材料见 THIRD_PARTY_NOTICES.md。
+`PUBLIC_RELEASE.json` 标识公开配置。不得加入 data、旧快照、未审阅报告、原型、私有配置或原研发仓库的 Git 历史。用户已授权的例外仅为 examples/reports/ 中的 COST、AAPL、ADBE 三个官方来源示例、配套 README/provenance 和 docs/images/ 的实际截图；不据此扩大原始资料或供应商数据的发行范围。更新示例时同步来源、截止日期、SHA256 和截图。`scripts/check_public.py --tracked --history` 检查当前与历史示例的来源及身份。原始资料和缓存保留在被忽略的 .local/、reports/。MIT 只适用于自有代码、文档和合成测试，第三方材料见 THIRD_PARTY_NOTICES.md。

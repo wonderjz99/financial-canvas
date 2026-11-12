@@ -1,4 +1,4 @@
-name: V2 public verification
+name: Financial Canvas verification
 
 on:
   push:
@@ -44,7 +44,7 @@ jobs:
       - run: python -B scripts/verify.py --scope v2
 
   browser:
-    name: V2 offline Chromium (desktop and mobile)
+    name: Offline Chromium (desktop and mobile)
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:

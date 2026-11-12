@@ -1,4 +1,4 @@
-# V2 开发与验证
+# Financial Canvas 开发与验证
 
 Python 3.10+，推荐 `.python-version` 的 3.12。核心不需要 pip 依赖；Node.js 22+ 和锁定的 Playwright 仅用于开发验收。Windows PowerShell 可设置 `$env:PYTHONUTF8 = "1"`，并把 python3 换成实际命令名。
 
@@ -6,7 +6,7 @@ Python 3.10+，推荐 `.python-version` 的 3.12。核心不需要 pip 依赖；
 python3 -B scripts/verify.py
 ```
 
-公开版根目录的 PUBLIC_RELEASE.json 使验证默认采用 V2 模式；也可以显式 `--scope v2`。验证只运行 V2 契约与公开内容边界测试、JavaScript 语法检查，不读取历史公司数据或访问金融服务。
+公开版根目录的 PUBLIC_RELEASE.json 使验证默认采用单公司模式；也可以显式 `--scope v2`。验证运行合成契约与公开内容边界测试、JavaScript 语法检查，并核对随附示例的 SHA256 和来源，不读取研发仓库数据或访问金融服务。
 
 ```bash
 npm ci --ignore-scripts
@@ -28,7 +28,9 @@ python3 scripts/check_public.py
 python3 scripts/check_public.py --tracked --history
 ```
 
-第二条需要当前目录是独立的 Git 仓库，并检查 Git 索引及已获取历史中是否出现被排除路径。CI 使用完整历史获取以执行此检查；它是发行内容检查，不是完整密钥或漏洞审计。
+第二条需要当前目录是独立的 Git 仓库，并检查 Git 索引及已获取历史中是否出现被排除路径。仅允许 examples/reports/ 下的 COST、AAPL、ADBE 三个报告；其 provenance.json 必须匹配文件 SHA256、单公司身份、年度、币种、截止日期和 SEC 来源。历史提交中的示例也执行来源检查，不能用后续替换掩盖旧供应商数据。CI 使用完整历史获取；它是发行内容检查，不是完整密钥或漏洞审计。
+
+README 的 docs/images/ 截图来自实际示例。更新示例时离线构建到新路径、复核报告和出处、同步 provenance.json，再用浏览器检查桌面及 390px/320px 交互并重拍截图。不要直接编辑 HTML 中的金额或图形，也不要复制工作目录、缓存或原始申报。
 
 CI 的待发布提交应通过 Linux Python 3.10/3.12、Windows Python 3.12 和 Chromium。工作流不部署网站、不调用金融服务，权限为仓库只读。package.json 中 private: true 防止误发布开发依赖包，不影响 GitHub 可见性。
 

@@ -1,6 +1,6 @@
 # V2 实现与验证模式
 
-项目路径从已定位的 Financial Visualizer 根目录解析，不从 Skill 安装目录猜测。
+项目路径从已定位的 Financial Canvas 根目录解析，不从 Skill 安装目录猜测。
 
 ## 固定程序与研究分工
 

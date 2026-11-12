@@ -1,6 +1,6 @@
 ---
 name: "financial-statement-visuals"
-description: "Generate a single-company financial HTML from a stock ticker through the companion Financial Visualizer V2 prepare/research/build workflow, or create source-traceable financial charts from supplied data. Excludes valuation and trading; no FutuMCP or model API required."
+description: "Generate a single-company financial HTML from a stock ticker through the companion Financial Canvas · 财务画布 prepare/research/build workflow, or create source-traceable financial charts from supplied data. Excludes valuation and trading; no FutuMCP or model API required."
 ---
 
 # 财务报表可视化经验

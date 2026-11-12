@@ -9,6 +9,7 @@
   document.querySelectorAll('.companies').forEach(node=>node.remove());
   const deliveryNote=element('div',{class:'delivery-note'});
   document.querySelector('.page-head').after(deliveryNote);
+  document.querySelector('.page-head > div').prepend(element('p',{class:'report-brand'},label('brandEn')+' / '+label('brand')));
   function updateDelivery(){
     const p=period(),details=element('details',{class:'delivery-sources'},element('summary',{},label('v2SourcesAndGaps')));
     deliveryNote.replaceChildren(element('p',{},label(r.delivery.status==='conflict'?'v2Conflict':'v2Partial')+' · '+label('asOf')+' '+r.snapshot.asOf+' · '+r.company.currency+' · '+r.delivery.identity.accounting));

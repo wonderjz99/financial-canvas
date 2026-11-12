@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "reviewed-official-report-examples",
+  "reports": [
+    {
+      "path": "examples/reports/COST.html",
+      "symbol": "COST",
+      "sha256": "5764277ed7e55ea08eb95e1355a0d2e401f10bfef70654d41d76b0a31224f418",
+      "asOf": "2026-11-12",
+      "currency": "USD",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "factSources": [
+        "IR_manual",
+        "SEC",
+        "calculated"
+      ],
+      "status": "partial",
+      "annualSources": [
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983222000021/cost-20220828.htm",
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983223000042/cost-20230903.htm",
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983224000049/cost-20240901.htm",
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+        "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm"
+      ]
+    },
+    {
+      "path": "examples/reports/AAPL.html",
+      "symbol": "AAPL",
+      "sha256": "53554f1688b77fc44afdd9d3e717884dcac8c4862cd14b77a183cea71dfea79b",
+      "asOf": "2026-11-12",
+      "currency": "USD",
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "factSources": [
+        "IR_manual",
+        "SEC",
+        "calculated"
+      ],
+      "status": "partial",
+      "annualSources": [
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/aapl-20220924.htm",
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019323000106/aapl-20230930.htm",
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+        "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm"
+      ]
+    },
+    {
+      "path": "examples/reports/ADBE.html",
+      "symbol": "ADBE",
+      "sha256": "654b3197d2d38baae54a7e34653f4e31686019973593bc20d96eb2d17eee8a44",
+      "asOf": "2026-11-12",
+      "currency": "USD",
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "factSources": [
+        "IR_manual",
+        "SEC",
+        "calculated"
+      ],
+      "status": "partial",
+      "annualSources": [
+        "https://www.sec.gov/Archives/edgar/data/796343/000079634322000032/adbe-20211203.htm",
+        "https://www.sec.gov/Archives/edgar/data/796343/000079634323000007/adbe-20221202.htm",
+        "https://www.sec.gov/Archives/edgar/data/796343/000079634324000006/adbe-20231201.htm",
+        "https://www.sec.gov/Archives/edgar/data/796343/000079634325000004/adbe-20241129.htm",
+        "https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm"
+      ]
+    }
+  ]
+}

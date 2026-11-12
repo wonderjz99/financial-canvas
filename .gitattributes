@@ -2,3 +2,5 @@
 *.png binary
 *.jpg binary
 *.pdf binary
+# Preserve generated examples exactly as emitted; indentation-only lines are expected.
+examples/reports/*.html -whitespace

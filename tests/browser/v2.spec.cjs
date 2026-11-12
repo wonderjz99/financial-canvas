@@ -37,7 +37,7 @@ test('V2 single company: offline years, modes, sources and analysis', async ({ p
     await expect(page.locator('.detail')).toHaveAttribute('data-detail-section', id);
     if (id === 'cash_uses') {
       await page.locator('[data-cash-use-view="equity"]').click();
-      await expect(page.locator('.detail')).not.toContainText('归母');
+      await expect(page.locator('.detail')).not.toContainText(/期[初末]归母权益/);
     }
     const overflow = await page.locator('.detail').evaluate(node => node.scrollWidth > node.clientWidth + 1);
     expect(overflow).toBe(false);

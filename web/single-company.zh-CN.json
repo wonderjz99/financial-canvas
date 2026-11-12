@@ -15,5 +15,10 @@
   "refresh_failed_using_cache": "刷新失败，使用已核验缓存",
   "cache_invalid": "发现损坏缓存，已记录",
   "filing_unavailable": "年报 HTML 未取得，待补充官方资料",
-  "v2IncomeFormation": "非经营项目来自本期官方原表的完整行集审阅；图形只表达已核对的算术形成关系。"
+  "v2IncomeFormation": "非经营项目来自本期官方原表的完整行集审阅；图形只表达已核对的算术形成关系。",
+  "begin_equity": "期初权益",
+  "end_equity": "期末权益",
+  "oci_parent": "本年其他综合收益（范围见来源）",
+  "comprehensive_income_parent": "本年综合收益总额（独立小计，范围见来源）",
+  "equity_components_are_not_a_bridge": "期初、期末权益与各组成项分别显示，具体合并或归母范围以来源为准。净利润和本年其他综合收益是期间项目，累计其他综合收益是余额；不同范围不能直接相加，综合收益总额也不重复计入。缺少完整权益变动明细时不画闭合桥。"
 }

@@ -35,6 +35,10 @@ test('V2 single company: offline years, modes, sources and analysis', async ({ p
   for (const id of ['profit', 'cash_conversion', 'working_capital', 'cash_uses', 'efficiency', 'quality']) {
     await page.locator(`.analysis-nav [data-analysis="${id}"]`).click();
     await expect(page.locator('.detail')).toHaveAttribute('data-detail-section', id);
+    if (id === 'cash_uses') {
+      await page.locator('[data-cash-use-view="equity"]').click();
+      await expect(page.locator('.detail')).not.toContainText('归母');
+    }
     const overflow = await page.locator('.detail').evaluate(node => node.scrollWidth > node.clientWidth + 1);
     expect(overflow).toBe(false);
   }

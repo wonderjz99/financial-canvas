@@ -1,0 +1,19 @@
+{
+  "v2CashScope": "现金流口径以已披露的现金、现金等价物及受限现金合计为准；缺少相容端点时不绘制闭合桥。",
+  "v2SourceSummary": "SEC 结构化事实及明确引用的官方原文补充",
+  "v2SourcesAndGaps": "资料版本、实际财年与待核验项",
+  "v2Partial": "部分报告 · 财务审阅有限",
+  "v2Conflict": "部分报告 · 存在勾稽差异",
+  "v2FiscalPeriods": "实际年度期间：",
+  "v2Days": "天",
+  "v2Gaps": "本年度缺失指标：",
+  "v2BusinessStatus": "主营资料：",
+  "v2CfoStatus": "完整经营现金调节：",
+  "v2SourceWarning": "资料获取说明：",
+  "v2Version": "版本 SHA256",
+  "v2NotComparable": "该期间主营口径不可直接比较。",
+  "refresh_failed_using_cache": "刷新失败，使用已核验缓存",
+  "cache_invalid": "发现损坏缓存，已记录",
+  "filing_unavailable": "年报 HTML 未取得，待补充官方资料",
+  "v2IncomeFormation": "非经营项目来自本期官方原表的完整行集审阅；图形只表达已核对的算术形成关系。"
+}

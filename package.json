@@ -1,0 +1,18 @@
+{
+  "name": "financial-visualizer-dev",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Development-only browser checks for the offline financial report",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test:browser": "playwright test",
+    "test:browser:headed": "playwright test --headed",
+    "check:js": "node --check web/app.js && node --check web/charts.js && node --check web/single-company.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
+  },
+  "license": "MIT"
+}
